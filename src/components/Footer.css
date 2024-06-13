@@ -1,0 +1,64 @@
+
+
+.footer {
+  background-color: #343a40;
+  color: #fff;
+}
+
+.footer .border-bottom {
+  border-color: rgba(255, 255, 255, 0.1) !important;
+}
+
+.footer h6 {
+  color: #fff;
+}
+
+.footer a {
+  color: #fff;
+  text-decoration: none;
+}
+
+.footer a:hover {
+  text-decoration: underline;
+}
+
+.footer p, .footer li {
+  color: #fff;
+}
+
+.footer .list-unstyled {
+  padding-left: 0;
+  list-style: none;
+}
+
+.footer .list-unstyled li {
+  margin-bottom: 10px;
+}
+
+.footer .copyright {
+  background-color: rgba(0, 0, 0, 0.05);
+  color: #fff;
+}
+
+.footer .me-4 {
+  margin-right: 1.5rem !important;
+}
+
+.footer .text-reset:hover {
+  color: #ffdd57 !important;
+}
+.me-5{color: white;}
+
+.pink-navbar {
+  background-color: #e49fba; /* Pink color */
+  height: 30px;
+}
+
+
+
+/* Add any other custom styles */
+
+
+
+
+

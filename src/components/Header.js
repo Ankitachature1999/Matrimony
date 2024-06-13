@@ -1,0 +1,63 @@
+import React, { useState } from 'react';
+import { Navbar, Nav, Button } from 'react-bootstrap';
+import { LinkContainer } from 'react-router-bootstrap';
+import { FaSignInAlt } from 'react-icons/fa'; // Importing an icon for login
+import LoginForm from './LoginForm'; // Import the LoginForm component
+import './Header.css'; // Assuming you create a CSS file for the custom styles
+import { TbBackground } from 'react-icons/tb';
+
+function Header() {
+  const [showLogin, setShowLogin] = useState(false);
+
+  const handleShowLogin = () => setShowLogin(true);
+  const handleCloseLogin = () => setShowLogin(false);
+
+  return (
+    <>
+
+<div className="pink-navbar" style={{backgroundColor:'rgb(239, 159, 130)'}}>
+  <span className="call-us">Call Us-9595959595</span>
+</div>
+      <Navbar bg="white" variant="black" expand="lg" className="px-3">
+        <Navbar.Brand className="logo" href="/">Matrimony</Navbar.Brand>
+        <Navbar.Toggle aria-controls="basic-navbar-nav" />
+        <Navbar.Collapse id="basic-navbar-nav">
+          <Nav className="mx-auto nav-links">
+            <LinkContainer to="/">
+              <Nav.Link className="nav-link-spacing">Home</Nav.Link>
+            </LinkContainer>
+            <LinkContainer to="/about">
+              <Nav.Link className="nav-link-spacing">About Us</Nav.Link>
+            </LinkContainer>
+            <LinkContainer to="/services">
+              <Nav.Link className="nav-link-spacing">Services</Nav.Link>
+            </LinkContainer>
+            <LinkContainer to="/contact">
+              <Nav.Link className="nav-link-spacing">Contact Us</Nav.Link>
+            </LinkContainer>
+            <LinkContainer to="/testimonial">
+              <Nav.Link className="nav-link-spacing">Testimonials</Nav.Link>
+            </LinkContainer>
+          </Nav>
+          <Button variant="outline-primary" className="login-btn" onClick={handleShowLogin}>
+            <FaSignInAlt /> Login
+          </Button>
+        </Navbar.Collapse>
+      </Navbar>
+
+      <LoginForm show={showLogin} handleClose={handleCloseLogin} />
+    </>
+  );
+}
+
+export default Header;
+
+
+
+
+
+
+
+
+
+

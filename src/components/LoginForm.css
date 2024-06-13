@@ -1,0 +1,37 @@
+/* LoginForm.css */
+.modal-header {
+    background-color: #f090b7;
+    color: white;
+    justify-content: center;
+  }
+  
+  .modal-title {
+    font-size: 1.25rem;
+  }
+  
+  .form-group {
+    margin-bottom: 1rem;
+  }
+  
+  .country-code {
+    max-width: 70px;
+    margin-right: 10px;
+  }
+  
+  .btn-block {
+    width: 100%;
+    background-color: #dedbe4;
+    border: none;
+    margin-top: 1rem;
+  }
+  
+  .btn-block:hover {
+    background-color: #e64a19;
+  }
+  
+  .text-muted {
+    margin-top: 10px;
+    font-size: 0.875rem;
+    text-align: center;
+  }
+  

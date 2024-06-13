@@ -1,0 +1,19 @@
+body {
+    margin: 0; /* Remove default margin */
+    padding: 0; /* Remove default padding */
+    height: 100vh; /* Set body height to 100% viewport height */
+    background-image: url('../assets/images/couple.jpg'); /* Set background image */
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    display: flex; /* Allow content to be centered vertically */
+    justify-content: center; /* Center content horizontally */
+    align-items: center; /* Center content vertically within the flexbox */
+  }
+  
+  /* Optional: Style your React app container (if needed) */
+  #app-container {
+    width: 100%; /* Set width to 100% */
+  }
+
+  

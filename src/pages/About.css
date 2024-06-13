@@ -1,0 +1,77 @@
+.about-us {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  background-size: cover;
+  background-position: center;
+  color: white;
+  padding: 20px;
+}
+
+.content-wrapper {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  width: 80%;
+  background-color: rgba(0, 0, 0, 0.5);
+  padding: 20px;
+  border-radius: 10px;
+}
+
+.content-section,
+.form-section {
+  width: 45%;
+}
+
+h3 {
+  margin-top: 0;
+}
+
+.values {
+  list-style: none;
+  padding: 0;
+}
+
+.values li {
+  margin: 10px 0;
+}
+
+.testimonials blockquote {
+  margin: 20px 0;
+  font-style: italic;
+}
+
+.form-section form {
+  display: flex;
+  flex-direction: column;
+}
+
+.form-section form label {
+  margin: 10px 0 5px;
+}
+
+.form-section form input,
+.form-section form select,
+.form-section form button {
+  padding: 10px;
+  margin-bottom: 10px;
+  border-radius: 5px;
+  border: none;
+}
+
+.form-section form button {
+  background-color: #007bff;
+  color: white;
+  cursor: pointer;
+}
+
+.form-section form button:hover {
+  background-color: #0056b3;
+}
+
+  
+  
+  
+  
