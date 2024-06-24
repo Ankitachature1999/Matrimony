@@ -1,65 +1,105 @@
-/* Header.css */
 .pink-navbar {
-  background-color: rgb(239, 159, 130)  ; /* Pink color */
-  height: 30px;
-}
-
-.logo {
-  font-weight: bold;
-}
-
-.navbar-nav {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
-
-.nav-links {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  gap: 20px; /* Adjust for proper spacing between links */
-}
-
-.nav-link-spacing {
-  margin: 0 10px; /* Adjust for fine-tuning spacing between links */
-}
-
-.login-btn {
   display: flex;
   align-items: center;
-  margin-left: auto; /* Move the login button to the right */
-}
-
-.login-btn .fa-sign-in-alt {
-  margin-right: 5px; /* Space between icon and text */
-}
-
-
-
-.pink-navbar {
-  position: relative;
+  padding: 10px;
 }
 
 .call-us {
   position: absolute;
-  top: 50%;
-  transform: translateY(-50%);
-  right: 20px; /* Adjust this value as needed */
-  font-family: Arial, sans-serif; /* Change the font family to your preference */
-  font-size: 16px; /* Adjust font size as needed */
-  color: rgb(17, 6, 6); /* Text color */
-  animation: flash 1.5s infinite; /* Animation */
+  right: 10px;
+  animation: flash 1s infinite;
 }
 
 @keyframes flash {
-  0% {
-    opacity: 1;
-  }
-  50% {
-    opacity: 0;
-  }
-  100% {
-    opacity: 1;
-  }
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0; }
+}
+
+.navbar {
+  position: relative;
+}
+
+.about-us {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  background-size: cover;
+  background-position: center;
+  color: white;
+  padding: 20px;
+}
+
+.content-wrapper {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  width: 80%;
+  background-color: rgba(0, 0, 0, 0.5);
+  padding: 20px;
+  border-radius: 10px;
+}
+
+.content-section,
+.form-section {
+  width: 45%;
+}
+
+h3 {
+  margin-top: 0;
+}
+
+.values {
+  list-style: none;
+  padding: 0;
+}
+
+.values li {
+  margin: 10px 0;
+}
+
+.testimonials blockquote {
+  margin: 20px 0;
+  font-style: italic;
+}
+
+.form-section form {
+  display: flex;
+  flex-direction: column;
+}
+
+.form-section form label {
+  margin: 10px 0 5px;
+}
+
+.form-section form input,
+.form-section form select,
+.form-section form button {
+  padding: 10px;
+  margin-bottom: 10px;
+  border-radius: 5px;
+  border: none;
+}
+
+.form-section form button {
+  background-color: #007bff;
+  color: white;
+  cursor: pointer;
+}
+
+.form-section form button:hover {
+  background-color: #0056b3;
+}
+
+.text-center {
+  text-align: center;
+}
+
+.mt-3 {
+  margin-top: 1rem;
+}
+
+.text-danger {
+  color: red;
 }

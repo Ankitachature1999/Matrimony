@@ -1,73 +1,103 @@
 import React, { useState } from 'react';
 import { Modal, Button, Form } from 'react-bootstrap';
-import './LoginForm.css'; // Create and import your custom CSS here
+import './LoginForm.css';
 
-const LoginForm = ({ show, handleClose }) => {
-  const [profile, setProfile] = useState('');
-  const [name, setName] = useState('');
-  const [phone, setPhone] = useState('');
+function LoginForm({ show, handleClose, registeredUsers }) {
+  const [formData, setFormData] = useState({ email: '', password: '' });
+  const [errors, setErrors] = useState({});
+
+  const handleChange = (e) => {
+    setFormData({ ...formData, [e.target.name]: e.target.value });
+  };
+
+  const validateForm = () => {
+    const newErrors = {};
+    if (!formData.email) newErrors.email = 'Email is required';
+    if (!formData.password) newErrors.password = 'Password is required';
+    return newErrors;
+  };
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    // Handle form submission logic here
-    console.log('Form submitted:', { profile, name, phone });
+    const formErrors = validateForm();
+    if (Object.keys(formErrors).length === 0) {
+      const user = registeredUsers.find(user => user.email === formData.email && user.password === formData.password);
+      if (user) {
+        alert('Login Successful');
+        handleClose();
+      } else {
+        setErrors({ general: 'Invalid email or password' });
+      }
+    } else {
+      setErrors(formErrors);
+    }
   };
 
   return (
     <Modal show={show} onHide={handleClose} centered>
       <Modal.Header closeButton>
-        <Modal.Title>Create a Matrimony Profile</Modal.Title>
+        <Modal.Title>Login</Modal.Title>
       </Modal.Header>
       <Modal.Body>
         <Form onSubmit={handleSubmit}>
-          <Form.Group controlId="formProfile">
-            <Form.Label>Select Profile</Form.Label>
+          <Form.Group controlId="formEmail">
+            <Form.Label>Email Id*</Form.Label>
             <Form.Control
-              as="select"
-              value={profile}
-              onChange={(e) => setProfile(e.target.value)}
-              required
-            >
-              <option value="">Select Profile</option>
-              {/* Add options here */}
-            </Form.Control>
-          </Form.Group>
-          <Form.Group controlId="formName">
-            <Form.Label>Name</Form.Label>
-            <Form.Control
-              type="text"
-              value={name}
-              onChange={(e) => setName(e.target.value)}
+              type="email"
+              name="email"
+              value={formData.email}
+              onChange={handleChange}
+              isInvalid={!!errors.email}
               required
             />
+            <Form.Control.Feedback type="invalid">
+              {errors.email}
+            </Form.Control.Feedback>
           </Form.Group>
-          <Form.Group controlId="formPhone">
-            <Form.Label>Phone Number</Form.Label>
-            <div className="d-flex">
-              <Form.Control
-                type="text"
-                value="+91"
-                readOnly
-                className="country-code"
-              />
-              <Form.Control
-                type="text"
-                value={phone}
-                onChange={(e) => setPhone(e.target.value)}
-                required
-              />
+
+          <Form.Group controlId="formPassword">
+            <Form.Label>Password*</Form.Label>
+            <Form.Control
+              type="password"
+              name="password"
+              value={formData.password}
+              onChange={handleChange}
+              isInvalid={!!errors.password}
+              required
+            />
+            <Form.Control.Feedback type="invalid">
+              {errors.password}
+            </Form.Control.Feedback>
+          </Form.Group>
+
+          {errors.general && (
+            <div className="text-danger text-center mb-3">
+              {errors.general}
             </div>
-          </Form.Group>
-          <Button variant="primary" type="submit" className="btn-block">
-            Register Free
+          )}
+
+          <Button variant="primary" type="submit" className="btn-block my-3">
+            Continue
           </Button>
-          <Form.Text className="text-muted">
-            By clicking register free, I agree to the T&C and Privacy Policy
-          </Form.Text>
         </Form>
+        <div className="text-center">
+          <a href="#" className="forgot-password">Forgot Password?</a>
+        </div>
+        <div className="text-center mt-3">
+          <small>
+            By Signing Up You Agree To Our <a href="#">Terms And Conditions</a> And <a href="#">Privacy Policy</a>.
+          </small>
+        </div>
+        <div className="text-center mt-3">
+          <span>Do Not Have An Account? <a href="#" onClick={() => {
+            handleClose();
+            // Logic to open Register modal
+          }}>Register</a></span>
+        </div>
       </Modal.Body>
     </Modal>
   );
-};
+}
 
 export default LoginForm;
+

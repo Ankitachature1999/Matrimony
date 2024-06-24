@@ -1,10 +1,9 @@
 import React, { useState } from 'react';
 import { Navbar, Nav, Button } from 'react-bootstrap';
 import { LinkContainer } from 'react-router-bootstrap';
-import { FaSignInAlt } from 'react-icons/fa'; // Importing an icon for login
-import LoginForm from './LoginForm'; // Import the LoginForm component
-import './Header.css'; // Assuming you create a CSS file for the custom styles
-import { TbBackground } from 'react-icons/tb';
+import { FaSignInAlt } from 'react-icons/fa';
+import LoginForm from './LoginForm';
+import './Header.css';
 
 function Header() {
   const [showLogin, setShowLogin] = useState(false);
@@ -14,10 +13,9 @@ function Header() {
 
   return (
     <>
-
-<div className="pink-navbar" style={{backgroundColor:'rgb(239, 159, 130)'}}>
-  <span className="call-us">Call Us-9595959595</span>
-</div>
+      <div className="pink-navbar" style={{ backgroundColor: 'rgb(239, 159, 130)' }}>
+        <span className="call-us">Call Us-9595959595</span>
+      </div>
       <Navbar bg="white" variant="black" expand="lg" className="px-3">
         <Navbar.Brand className="logo" href="/">Matrimony</Navbar.Brand>
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
@@ -51,6 +49,8 @@ function Header() {
 }
 
 export default Header;
+
+
 
 
 

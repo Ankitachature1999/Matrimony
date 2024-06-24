@@ -1,8 +1,33 @@
-import React from 'react';
+import React, { useState } from 'react';
 import './About.css'; // Import your CSS file
 import slide from '../assets/images/slide.jpg'; // Import the image
 
 const About = () => {
+  const [formData, setFormData] = useState({ email: '', password: '' });
+  const [errors, setErrors] = useState({});
+
+  const handleChange = (e) => {
+    setFormData({ ...formData, [e.target.name]: e.target.value });
+  };
+
+  const validateForm = () => {
+    const newErrors = {};
+    if (!formData.email) newErrors.email = 'Email is required';
+    if (!formData.password) newErrors.password = 'Password is required';
+    return newErrors;
+  };
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    const formErrors = validateForm();
+    if (Object.keys(formErrors).length === 0) {
+      // Simulate login success
+      alert('Login Successful');
+    } else {
+      setErrors(formErrors);
+    }
+  };
+
   return (
     <div className="about-us" style={{ backgroundImage: `url(${slide})` }}>
       <div className="content-wrapper">
@@ -46,22 +71,44 @@ const About = () => {
           </div>
         </div>
         <div className="form-section">
-          <h3>Create Matrimony Profile</h3>
-          <form>
-            <label htmlFor="name">Name</label>
-            <input type="text" id="name" name="name" placeholder="Name" />
-            <label htmlFor="email">Email</label>
-            <input type="email" id="email" name="email" placeholder="Your email" />
-            <label htmlFor="mobile">Mobile No.</label>
-            <input type="tel" id="mobile" name="mobile" placeholder="Mobile No." />
-            <label htmlFor="lookingFor">Select list (select one):</label>
-            <select id="lookingFor" name="lookingFor">
-              <option value="">Looking For</option>
-              <option value="bride">Bride</option>
-              <option value="groom">Groom</option>
-            </select>
-            <button type="submit">Submit</button>
+          <h3>Login</h3>
+          <form onSubmit={handleSubmit}>
+            <label htmlFor="email">Email Id*</label>
+            <input
+              type="email"
+              id="email"
+              name="email"
+              value={formData.email}
+              onChange={handleChange}
+              placeholder="Your email"
+              required
+              className={errors.email ? 'is-invalid' : ''}
+            />
+            {errors.email && <div className="invalid-feedback">{errors.email}</div>}
+
+            <label htmlFor="password">Password*</label>
+            <input
+              type="password"
+              id="password"
+              name="password"
+              value={formData.password}
+              onChange={handleChange}
+              placeholder="Password"
+              required
+              className={errors.password ? 'is-invalid' : ''}
+            />
+            {errors.password && <div className="invalid-feedback">{errors.password}</div>}
+
+            <button type="submit">Continue</button>
           </form>
+          <div className="text-center">
+            <a href="#" className="forgot-password">Forgot Password?</a>
+          </div>
+          <div className="text-center mt-3">
+            <small>
+              By Signing Up You Agree To Our <a href="#">Terms And Conditions</a> And <a href="#">Privacy Policy</a>.
+            </small>
+          </div>
         </div>
       </div>
     </div>
