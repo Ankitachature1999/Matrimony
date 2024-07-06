@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import './About.css'; // Import your CSS file
-import slide from '../assets/images/slide.jpg'; // Import the image
+// import slide from '../assets/images/slide.jpg'; // Import the image
 
 const About = () => {
   const [formData, setFormData] = useState({ email: '', password: '' });
@@ -28,10 +28,29 @@ const About = () => {
     }
   };
 
+
+
   return (
-    <div className="about-us" style={{ backgroundImage: `url(${slide})` }}>
-      <div className="content-wrapper">
-        <div className="content-section">
+
+<>  
+
+<div class="about-section">
+  <h1 style={{position:'relative', marginTop:'50px'}}>About Us Page</h1>
+  <p>Some text about who we are and what we do.</p>
+  <p>Resize the browser window to see that this page is responsive by the way.</p>
+</div>
+    <div>
+    <h3 style={{position:'relative', textAlign:'center',marginTop:'20px'}}>Feel free to adjust the content to better fit your website's style and tone.</h3>
+    <p style={{position:'relative', textAlign:'center'}}>Genuine Profiles | Safe & Secure | Detailed Family Information</p>
+    <div style={{display:'flex', justifyContent:'space-around', position:'relative', marginTop:'20px'}}>
+      <div>Box1</div>
+      <div>Box2</div>
+    </div>
+    </div>
+  
+      <div className="content-wrapper" style={{position:'relative', marginTop:'60px', marginLeft:'155px'}} >
+     
+        <div className="content-section"  >
           <h3>Our Mission</h3>
           <p>
             We believe in the power of love and are dedicated to providing a
@@ -58,14 +77,14 @@ const About = () => {
           <div className="testimonials">
             <blockquote>
               <p>
-                "Thanks to [Your Website Name], I found the love of my life! We
-                couldn't be happier." - [Couple's Names]
+                {/* "Thanks to [Your Website Name], I found the love of my life! We
+                couldn't be happier." - [Couple's Names] */}
               </p>
             </blockquote>
             <blockquote>
               <p>
-                "This platform is user-friendly and helped me connect with someone
-                who shares my values." - [Another Couple's Names]
+                {/* "This platform is user-friendly and helped me connect with someone
+                who shares my values." - [Another Couple's Names] */}
               </p>
             </blockquote>
           </div>
@@ -111,7 +130,8 @@ const About = () => {
           </div>
         </div>
       </div>
-    </div>
+    
+      </>
   );
 };
 

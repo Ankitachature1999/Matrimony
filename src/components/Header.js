@@ -13,10 +13,12 @@ function Header() {
 
   return (
     <>
-      <div className="pink-navbar" style={{ backgroundColor: 'rgb(239, 159, 130)' }}>
+      <div className="pink-navbar" >
+      <p className="welcome">Welcome to our website</p>
         <span className="call-us">Call Us-9595959595</span>
+      
       </div>
-      <Navbar bg="white" variant="black" expand="lg" className="px-3">
+      <Navbar bg="transparent" variant="dark" expand="lg" className="transparent-navbar px-3">
         <Navbar.Brand className="logo" href="/">Matrimony</Navbar.Brand>
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">
@@ -49,15 +51,5 @@ function Header() {
 }
 
 export default Header;
-
-
-
-
-
-
-
-
-
-
 
 
