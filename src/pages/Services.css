@@ -1,9 +1,9 @@
-/* General styling */
-.services {
+General styling
+ .services {
     padding: 50px 20px;
     text-align: center;
-    background-color: #f3f4f6;
-  }
+    background-color: #7da0e0;
+  }  
   
   .services h1,
   .services h2 {
@@ -19,7 +19,7 @@
     display: flex;
     justify-content: center;
     flex-wrap: wrap;
-  }
+  } 
   
   .services li {
     margin: 10px 20px;

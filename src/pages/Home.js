@@ -1,120 +1,119 @@
-import React, { useState } from 'react';
-import { Container, Row, Col, Card, Button, Carousel } from 'react-bootstrap';
-import ProfileForm from './ProfileForm'; // Adjust the import path if necessary
-import { Link } from 'react-router-dom';
 
-import slide from '../assets/images/slide.jpg';
-import './ProfileForm.css';
+import React, { useState } from 'react';
+
+import { Container, Row, Col, Card, Button, Carousel } from 'react-bootstrap';
+import { Link } from 'react-router-dom';
+import MultiStepForm from './MultiStepForm'; // Adjust the import path if necessary
 import cp1 from '../assets/images/cp1.jpg';
 import cp2 from '../assets/images/cp2.jpg';
 import cp3 from '../assets/images/cp3.jpg';
 import cp4 from '../assets/images/cp4.jpeg';
-import pic1 from '../assets/images/pic1.avif';
 import pic4 from '../assets/images/pic4.jpeg';
-import pic2 from '../assets/images/pic2.webp';
-import pic5 from '../assets/images/pic5.jpg'
+
+import './ProfileForm.css'; // Adjust the CSS import path if necessary
+
 function Home() {
-  const [showProfileForm, setShowProfileForm] = useState(false);
+  const [showForm, setShowForm] = useState(false);
+
+  const handleShowForm = () => setShowForm(true);
+  const handleCloseForm = () => setShowForm(false);
 
   return (
-    <Container
-      fluid
-      style={{
-        backgroundImage: `url(${slide})`,
-        backgroundSize: 'cover',
-        backgroundPosition: 'center',
-        minHeight: '100vh',
-        display: 'flex',
-        flexDirection: 'column',
-        alignItems: 'center',
-        justifyContent: 'space-between',
-      }}
-    >
-      {/* Carousel Component */}
-      <Carousel className="mb-4" style={{ width: '100%', borderRadius: '0px', overflow: 'hidden', boxShadow: '0 4px 8px rgba(0, 0, 0, 0.1)' }}>
-        <Carousel.Item>
-          <img
-            className="d-block w-100"
-            src={pic5}
-            alt="First slide"
-            style={{ height: '550px', objectFit: 'cover' }}
-          />
-        </Carousel.Item>
-        <Carousel.Item>
-          <img
-            className="d-block w-100"
-            src={pic4}
-            alt="Third slide"
-            style={{ height: '550px', objectFit: 'cover', width: '100%', objectPosition: 'center' }}
-          />
-        </Carousel.Item>
-        <Carousel.Item>
-          <img
-            className="d-block w-100"
-            src={pic1}
-            alt="Third slide"
-            style={{ height: '550px', objectFit: 'cover' }}
-          />
-        </Carousel.Item>
-      </Carousel>
+    <Container fluid>
+      <div className="home">
+        <div className="overlay">
+          <form className="registrationn-form">
+            <input type="text" placeholder="Your Full Name" />
+            <input type="text" placeholder="Your Mobile Number" />
+            <select>
+              <option value="">Profile for</option>
+              <option value="self">Self</option>
+              <option value="son">Son</option>
+              <option value="daughter">Daughter</option>
+              <option value="sibling">Sibling</option>
+            </select>
+            <Button variant="outline-primary" className="register-btn" onClick={handleShowForm}>
+              Register
+            </Button>
+          </form>
+        </div>
+      </div>
 
       {/* Steps Section */}
-      <div className="text-center mb-5">
-        <h2 className="mb-4" style={{ color: 'black', fontWeight: 'bold',marginLeft:'300px' }}>Meet Your Perfect Companion...</h2>
+      <div className="text-center mb-5" style={{ position: 'relative', marginTop: '20px' }}>
+        <h2 className="mb-4" style={{ color: 'black', fontWeight: 'bold', marginLeft: '300px' }}>
+          Create Your Profile Now.....
+        </h2>
+        <p>"Create Your Profile Today and Begin Your Journey to Finding True Love and Lasting Happiness!"</p>
         <Row className="justify-content-center">
           <Col md={4} className="mb-4">
-            <Card className="text-center" style={{ border: 'none' }}>
-              <Card.Body>
-                <div className="mb-3" style={{ width: '80px', height: '80px', backgroundColor: '#00BFFF', borderRadius: '50%', display: 'flex', alignItems: 'center', justifyContent: 'center', margin: '0 auto' }}>
-                  <span role="img" aria-label="sign up" style={{ fontSize: '2em', color: '#fff' }}>📝</span>
+            <Card className="text-center step-card">
+              <Card.Body style={{ backgroundColor: '#ffccff' }}>
+                <div className="icon-circle">
+                  <span role="img" aria-label="sign up" className="icon">📝</span>
                 </div>
-                <Card.Title>   <Link to="/register">Sign up</Link></Card.Title>
-                <Card.Text>
-                  Register for free & put up your Profile
+                <Card.Title>
+                  <Link to="/register" className="step-link">Personal Details</Link>
+                </Card.Title>
+                <Card.Text style={{ color: '#000000' }}>
+                  Register for free & put up your Profile here to find matches
                 </Card.Text>
-                <p>Step 1</p>
+                <p style={{ color: '#000000' }}>Step 1</p>
+                <hr />
               </Card.Body>
             </Card>
           </Col>
           <Col md={4} className="mb-4">
-            <Card className="text-center" style={{ border: 'none' }}>
-              <Card.Body>
-                 
-                <div className="mb-3" style={{ width: '80px', height: '80px', backgroundColor: '#00BFFF', borderRadius: '50%', display: 'flex', alignItems: 'center', justifyContent: 'center', margin: '0 auto' }}>
-                  <span role="img" aria-label="connect" style={{ fontSize: '2em', color: '#fff' }}>🔗</span>
+            <Card className="text-center step-card">
+              <Card.Body style={{ backgroundColor: '#ffccff' }}>
+                <div className="icon-circle">
+                  <span role="img" aria-label="connect" className="icon">🔗</span>
                 </div>
-                <Card.Title> <Link to="/educationform">Connect</Link></Card.Title>
-                <Card.Text>
-                  Select & Connect with Matches you like
+                <Card.Title>
+                  <Link to="/educationform" className="step-link">Educational Details</Link>
+                </Card.Title>
+                <Card.Text style={{ color: '#000000' }}>
+                  Select & Connect with Matches that you like the most
                 </Card.Text>
-                <p>Step 2</p>
+                <p style={{ color: '#000000' }}>Step 2</p>
+                <hr />
               </Card.Body>
             </Card>
           </Col>
           <Col md={4} className="mb-4">
-            <Card className="text-center" style={{ border: 'none' }}>
-              <Card.Body>
-                <div className="mb-3" style={{ width: '80px', height: '80px', backgroundColor: '#00BFFF', borderRadius: '50%', display: 'flex', alignItems: 'center', justifyContent: 'center', margin: '0 auto' }}>
-                  <span role="img" aria-label="interact" style={{ fontSize: '2em', color: '#fff' }}>💬</span>
+            <Card className="text-center step-card">
+              <Card.Body style={{ backgroundColor: '#ffccff' }}>
+                <div className="icon-circle">
+                  <span role="img" aria-label="interact" className="icon">💬</span>
                 </div>
-                <Card.Title> <Link to="/careerform"> Interact</Link></Card.Title>
-                <Card.Text>
-                  Become a Premium Member & Start a Conversation
+                <Card.Title>
+                  <Link to="/careerform" className="step-link">Other</Link>
+                </Card.Title>
+                <Card.Text style={{ color: '#000000' }}>
+                  Become a Premium Member & Start a communication
                 </Card.Text>
-                <p>Step 3</p>
+                <p style={{ color: '#000000' }}>Step 3</p>
+                <hr />
               </Card.Body>
             </Card>
           </Col>
         </Row>
       </div>
 
-      {showProfileForm && <ProfileForm onClose={() => setShowProfileForm(false)} />}
-
       {/* About Section */}
       <Row className="justify-content-center mt-5">
         <Col md={8}>
-          <Card className="mb-4" style={{ width: '100%', borderRadius: '8px', overflow: 'hidden', boxShadow: '0 4px 8px rgba(0, 0, 0, 0.1)', backgroundColor: 'transparent' }}>
-            <Card.Body>
+          <Card
+            className="mb-4"
+            style={{
+              width: '100%',
+              borderRadius: '8px',
+              overflow: 'hidden',
+              boxShadow: '0 4px 8px rgba(0, 0, 0, 0.1)',
+              backgroundColor: 'transparent'
+            }}
+          >
+            <Card.Body style={{ backgroundColor: '#ffe6ff', padding: '20px', borderRadius: '8px' }}>
               <Row>
                 <Col md={4}>
                   <img
@@ -129,7 +128,11 @@ function Home() {
                     Are you ready to embark on a journey of love, companionship, and lifelong commitment? At Matrimony, we believe that every individual deserves to find their perfect match, someone who understands them, supports them, and shares their dreams. Let's start your journey of finding the perfect life partner with our matchmaking experts.
                   </p>
                   <Link to="/about">
-                    <Button variant="primary" className="btn-hover" style={{ backgroundColor: 'blue', padding: '10px 20px', width: '150px' }}>
+                    <Button
+                      variant="primary"
+                      className="btn-hover"
+                      style={{ backgroundColor: 'blue', padding: '10px 20px', width: '150px' }}
+                    >
                       View More
                     </Button>
                   </Link>
@@ -141,9 +144,17 @@ function Home() {
       </Row>
 
       {/* Additional information section as cards */}
-      <Row className="mb-4 justify-content-center" style={{ width: '80%', backgroundColor: 'white', borderRadius: '8px', boxShadow: '0 4px 8px rgba(0, 0, 0, 0.1)' }}>
+      <Row
+        className="mb-4 justify-content-center"
+        style={{
+          width: '100%',
+          backgroundColor: '#ffe6ff',
+          borderRadius: '8px',
+          boxShadow: '0 4px 8px rgba(0, 0, 0, 0.1)'
+        }}
+      >
         <Col md={4} xs={12} className="d-flex justify-content-center">
-          <Card className="text-center mb-4" style={{ width: '18rem' }}>
+          <Card className="text-center mb-4" style={{ width: '18rem', position: 'relative', marginTop: '10px' }}>
             <Card.Body>
               <span role="img" aria-label="members" style={{ fontSize: '2em' }}>👥</span>
               <Card.Title>Lakhs of Genuine Members</Card.Title>
@@ -154,7 +165,7 @@ function Home() {
           </Card>
         </Col>
         <Col md={4} xs={12} className="d-flex justify-content-center">
-          <Card className="text-center mb-4" style={{ width: '18rem' }}>
+          <Card className="text-center mb-4" style={{ width: '18rem', position: 'relative', marginTop: '10px' }}>
             <Card.Body>
               <span role="img" aria-label="verification" style={{ fontSize: '2em' }}>✔️</span>
               <Card.Title>Verification by Visit</Card.Title>
@@ -165,7 +176,7 @@ function Home() {
           </Card>
         </Col>
         <Col md={4} xs={12} className="d-flex justify-content-center">
-          <Card className="text-center mb-4" style={{ width: '18rem' }}>
+          <Card className="text-center mb-4" style={{ width: '18rem', position: 'relative', marginTop: '10px' }}>
             <Card.Body>
               <span role="img" aria-label="privacy" style={{ fontSize: '2em' }}>🔒</span>
               <Card.Title>100% Privacy</Card.Title>
@@ -182,7 +193,6 @@ function Home() {
         <Col xs={12} className="text-center mb-3">
           <h2 className="headline">Matched By Matrimony</h2>
         </Col>
-        
         <Col className="d-flex justify-content-center">
           <Card style={{ width: '18rem', margin: '10px' }}>
             <Card.Img variant="top" src={cp1} style={{ height: '300px', objectFit: 'cover' }} />
@@ -217,33 +227,10 @@ function Home() {
         </Col>
       </Row>
 
-      {/* Footer Section */}
-     
+      {/* Multi-Step Form Modal */}
+      {showForm && <MultiStepForm showForm={showForm} handleClose={handleCloseForm} />}
     </Container>
   );
 }
 
 export default Home;
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
