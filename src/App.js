@@ -3,7 +3,7 @@ import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import Header from './components/Header';
 import Footer from './components/Footer';
 import Home from './pages/Home';
-import Profile from './pages/Profile';
+import ShowProfile from './pages/ShowProfile';
 import About from './pages/About';
 import Contact from './pages/Contact';
 import PersonalDetails from './pages/PersonalDetails '; // Adjusted import
@@ -11,6 +11,7 @@ import EducationalDetails from './pages/EducationalDetails'; // Adjusted import
 import Services from './pages/Services';
 import Testimonials from './pages/Testimonials';
 import CareerForm from './pages/CareerForm';
+import MultiStepForm from './pages/MultiStepForm';
 // import SearchForm from './components/SearchForm'; // Adjusted import
 
 function App() {
@@ -20,7 +21,9 @@ function App() {
         <Header />
         <Routes>
           <Route path="/" element={<Home />} />
-          <Route path="/profile" element={<Profile />} />
+          <Route path="/register" element={<MultiStepForm />} />
+          <Route path="/showprofile" element={<ShowProfile />} />
+          {/* <Route path="/profile" element={<Profile />} /> */}
           <Route path="/about" element={<About />} />
           <Route path="/contact" element={<Contact />} />
           <Route path="/services" element={<Services />} />

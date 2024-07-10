@@ -1,10 +1,11 @@
 import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import PersonalDetails from './PersonalDetails ';
 import EducationalDetails from './EducationalDetails';
 import FamilyDetails from './FamilyDetails';
 import './MultiStepForm.css';
 
-const MultiStepForm = ({ handleClose }) => {
+const MultiStepForm = () => {
   const [step, setStep] = useState(1);
   const [formData, setFormData] = useState({
     fullName: '',
@@ -19,19 +20,19 @@ const MultiStepForm = ({ handleClose }) => {
     religion: '',
     city: '',
     pinCode: '',
-    // Add more fields for educational details
     highestQualification: '',
     collegeName: '',
     job: '',
     jobType: '',
     annualIncome: '',
-    // Add more fields for family details
     fatherName: '',
     motherName: '',
     liveWithFamily: '',
     familyType: '',
     diet: ''
   });
+
+  const navigate = useNavigate();
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -51,8 +52,11 @@ const MultiStepForm = ({ handleClose }) => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    // Handle form submission, e.g., send data to the server
-    console.log(formData);
+    navigate('/profile', { state: { formData } });
+  };
+
+  const closeForm = () => {
+    navigate('/');
   };
 
   const renderStep = () => {
@@ -70,7 +74,7 @@ const MultiStepForm = ({ handleClose }) => {
 
   return (
     <div className="multi-step-form">
-      <button className="close-btn" onClick={handleClose}>X</button>
+      <button className="close-btn" onClick={closeForm}>X</button>
       <form onSubmit={handleSubmit}>
         {renderStep()}
         <div className="form-navigation">

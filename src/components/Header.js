@@ -38,6 +38,9 @@ function Header() {
             <LinkContainer to="/testimonial">
               <Nav.Link className="nav-link-spacing">Testimonials</Nav.Link>
             </LinkContainer>
+            <LinkContainer to="/profile">
+              <Nav.Link className="nav-link-spacing">ShowProfile</Nav.Link>
+            </LinkContainer>
           </Nav>
           <Button variant="outline-primary" className="login-btn" onClick={handleShowLogin}>
             <FaSignInAlt /> Login

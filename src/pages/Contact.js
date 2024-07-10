@@ -1,14 +1,18 @@
-// src/Contact.js
-
 import React from 'react';
 import '@fortawesome/fontawesome-free/css/all.min.css';
-
+import './Contact.css'
 const Contact = () => {
   return (
-    <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', padding: '20px' }}>
-      <div style={{ display: 'flex', justifyContent: 'space-between', width: '80%', maxWidth: '1200px', marginBottom: '20px' }}>
-        <form style={{ width: '45%', padding: '20px', boxShadow: '0 0 10px rgba(0, 0, 0, 0.1)', borderRadius: '8px' }}>
-          <h2>Contact Us</h2>
+    <>   
+  <div className="contact-section">
+        <h1 style={{ position: 'relative', marginTop: '50px', color:'rgb(179, 0, 71)',marginTop:'6rem' }}>Contact Us Page</h1>
+        {/* <p>Some text about who we are and what we do.</p>
+        <p>Resize the browser window to see that this page is responsive by the way.</p> */}
+      </div>
+    <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', padding: '20px',  }}>
+      <div style={{ display: 'flex', justifyContent: 'space-between', width: '80%', maxWidth: '1200px', marginBottom: '20px', }}>
+        <form style={{ width: '45%', padding: '20px', boxShadow: '0 0 10px rgba(0, 0, 0, 0.1)', borderRadius: '8px', }}>
+          <h2 style={{color:'rgb(179, 0, 71)'}}>Contact Us</h2>
           <label style={{ display: 'block', marginBottom: '10px' }}>
             Name:
             <input type="text" name="name" style={{ width: '100%', padding: '8px', margin: '8px 0', boxSizing: 'border-box' }} />
@@ -21,10 +25,10 @@ const Contact = () => {
             Message:
             <textarea name="message" style={{ width: '100%', padding: '8px', margin: '8px 0', boxSizing: 'border-box' }} />
           </label>
-          <button type="submit" style={{ padding: '10px 20px', backgroundColor: '#4CAF50', color: 'white', border: 'none', borderRadius: '5px', cursor: 'pointer' }}>Submit</button>
+          <button type="submit" style={{ padding: '10px 20px', backgroundColor: 'rgb(255, 0, 102)', color: 'white', border: 'none', borderRadius: '5px', cursor: 'pointer' }}>Submit</button>
         </form>
         <div style={{ width: '45%', padding: '20px', boxShadow: '0 0 10px rgba(0, 0, 0, 0.1)', borderRadius: '8px' }}>
-          <h2>Our Office</h2>
+          <h2 style={{color:'rgb(179, 0, 71)'}}>Our Office</h2>
           <p><i className="fas fa-map-marker-alt"></i> <strong>Address:</strong> 123 Matrimony Street, Love City, Country</p>
           <p><i className="fas fa-envelope"></i> <strong>Email:</strong> contact@matrimony.com</p>
           <p><i className="fas fa-map-marked-alt"></i> <strong>Location:</strong> Latitude: 40.712776, Longitude: -74.005974</p>
@@ -42,6 +46,7 @@ const Contact = () => {
         ></iframe>
       </div>
     </div>
+    </>
   );
 };
 
